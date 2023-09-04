@@ -1,22 +1,23 @@
 import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const Navbar = () => {
   const routes = [
     {
       path: "/",
-      title: "Home",
+      title: "Главная",
     },
     {
       path: "/about",
-      title: "About",
+      title: "О сайте",
     },
     {
       path: "/products",
-      title: "Products",
+      title: "Игры",
     },
     {
       path: "/post",
-      title: "Post",
+      title: "Форум",
     }
   ];
 

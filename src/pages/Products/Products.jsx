@@ -1,33 +1,30 @@
 import Navbar from "@/components/Navbar";
-import axios from "axios";
 import { useState, useEffect } from "react";
 import "@/styles/Products.css";
 import { Link } from "react-router-dom";
+import './Products.css';
 
 const Products = () => {
   const [products, setProducts] = useState(null);
 
-  const fethProducts = async () => {
-    const res = await axios.get("http://localhost:3000/products");
-    setProducts(res.data);
-  };
-
   useEffect(() => {
-    axios.get("http://localhost:3000/products").then((res) => {
-      setProducts(res.data);
-    });
+    fetch('/api-server/db.json')
+      .then((response) => response.json())
+      .then((data) => {
+        setProducts(data.products);
+      });
   }, []);
+
   return (
     <>
       <Navbar />
       <h1>Products</h1>
-      <button onClick={fethProducts}>Fetch Products</button>
       {products ? (
         products.map((product) => {
           return (
-            <Link to={`/products/${product.id}`}>
-              <div key={product.id} className="card">
-                <img src={product.image} alt={product.title} />
+            <Link to={`/products/${product.id}`} key={product.id}>
+              <div className="card">
+                <img src={product.img} alt={product.title} />
                 <h3>{product.title}</h3>
                 <p>{product.price}</p>
               </div>

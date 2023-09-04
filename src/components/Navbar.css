@@ -1,0 +1,30 @@
+nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+  }
+  
+  li {
+    margin-right: 100px; /* Расстояние между элементами */
+  }
+  
+  li a {
+    text-decoration: none;
+    color: white; /* Белый цвет текста */
+    font-weight: bold;
+}
+
+/* Стиль для первого элемента li */
+li:first-child {
+    margin-left: 500px; /* Отступ от левого края для первого элемента */
+}
+
+/* Стиль для последнего элемента li */
+li:last-child {
+    margin-right: 50px; /* Отступ от правого края для последнего элемента */
+}
