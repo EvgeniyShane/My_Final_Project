@@ -8,7 +8,7 @@ const Products = () => {
   const [products, setProducts] = useState(null);
 
   useEffect(() => {
-    fetch('/api-server/db.json')
+    fetch('/backend/db.json')
       .then((response) => response.json())
       .then((data) => {
         setProducts(data.products);
@@ -26,7 +26,7 @@ const Products = () => {
               <div className="card">
                 <img src={product.img} alt={product.title} />
                 <h3>{product.title}</h3>
-                <p>{product.price}</p>
+                <p>{product.category}</p>
               </div>
             </Link>
           );

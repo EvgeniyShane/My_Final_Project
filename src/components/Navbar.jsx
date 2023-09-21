@@ -8,10 +8,6 @@ const Navbar = () => {
       title: "Главная",
     },
     {
-      path: "/about",
-      title: "О сайте",
-    },
-    {
       path: "/products",
       title: "Игры",
     },

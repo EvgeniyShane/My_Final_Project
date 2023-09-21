@@ -1,5 +1,6 @@
-html, body{
+html, body {
     height: 100%;
+    background-color: #1a1a1a; /* Чёрный цвет */
 }
 
 .container {
@@ -9,9 +10,15 @@ html, body{
     height: 100%;
 }
 
+.container svg {
+    fill: white;
+}
+
 .header {
     background: #000;
     height: 100px;
+    margin-left: 20px; /* Отступ с левой стороны */
+    padding: 5px; 
 }
 
 .main {
@@ -23,3 +30,36 @@ html, body{
     background: hsla(101, 100%, 47%, 0.493);
     height: 100px;
 }
+
+.search-input {
+    position: absolute; /* Абсолютное позиционирование */
+    top: 10px; /* Отступ от верхнего края */
+    right: 90px; /* Отступ от правого края */
+    padding: 5px 10px; /* Поля внутри input */
+    border: none; /* Убираем границу */
+    background-color: #3c3b3b; /* Цвет фона */
+    border-radius: 5px; /* Скругленные углы */
+    color: #fff;
+  }
+
+  .logo-container {
+    position: absolute;
+    width: 200px; /* Задайте ширину по вашему усмотрению */
+    height: auto; /* Задайте высоту по вашему усмотрению */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое по горизонтали */
+    color: #fff;
+}
+
+.icons {
+    display: flex;
+    justify-content: flex-start; /* Располагаем иконки влево */
+    margin-top: 10px; /* Расстояние между логотипом и иконками */
+    margin-right: 60px; /* Отступ справа */
+}
+
+.icons svg {
+    margin-right: 15px; /* Отступ между иконками */
+}
+
