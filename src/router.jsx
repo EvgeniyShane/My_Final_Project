@@ -3,6 +3,8 @@ import Home from "@/pages/Home/Home";
 import Products from "@/pages//Products/Products";
 import Product from "@/pages/Product";
 import Post from "@/pages/Post";
+import Login from "@/pages/Login";
+import Register from "./pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
   {
     path: "/post",
     element: <Post/>
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   }
 ]);
 
