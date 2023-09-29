@@ -13,7 +13,7 @@ const CommentForm = ({ postId }) => {
 
 
       const response = await axios.post(
-        'http://127.0.0.1:8000/admin/webapi/comment/',
+        'http://127.0.0.1:8000/api/comments/',
         {
           text: commentText,
           postId,
