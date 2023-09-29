@@ -13,7 +13,7 @@ const CommentForm = ({ postId }) => {
 
 
       const response = await axios.post(
-        'http://127.0.0.1:8000/admin/webapi/comment/', // Замените на ваш URL для создания комментариев
+        'http://127.0.0.1:8000/admin/webapi/comment/',
         {
           text: commentText,
           postId,
@@ -26,7 +26,7 @@ const CommentForm = ({ postId }) => {
       );
 
       console.log('Comment created:', response.data);
-      setCommentText(''); // Очищаем текст комментария
+      setCommentText('');
     } catch (error) {
       console.error('Error creating comment:', error);
     }
