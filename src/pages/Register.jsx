@@ -1,9 +1,8 @@
 import Navbar from "@/components/Navbar";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-
-
-
+import { useNavigate } from "react-router-dom";
+import "./Register.css"
 
 const Register = () => {
   const {
@@ -12,13 +11,14 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  const navigate = useNavigate();
+
   const onSubmit = (data) => {
-    console.log(data)
     axios.post("http://127.0.0.1:8000/auth/users/", data)
       .then((res) => {
-        window.location.href = "/";
+        navigate("/"); // Navigate to the desired page after registration, e.g., profile page
         console.log(res);
-      })
+      });
   }
 
   return (
@@ -54,7 +54,5 @@ const Register = () => {
     </div>
   );
 }
-
-
 
 export default Register;

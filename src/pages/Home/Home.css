@@ -1,6 +1,8 @@
 html, body {
     height: 100%;
     background-color: #1a1a1a; /* Чёрный цвет */
+    margin: 0; /* Убираем отступы */
+    padding: 0; /* Убираем внутренний отступ */
 }
 
 .container {
@@ -33,8 +35,8 @@ html, body {
 
 .search-input {
     position: absolute; /* Абсолютное позиционирование */
-    top: 10px; /* Отступ от верхнего края */
-    right: 90px; /* Отступ от правого края */
+    top: 50px; /* Отступ от верхнего края */
+    right: 740px; /* Отступ от правого края */
     padding: 5px 10px; /* Поля внутри input */
     border: none; /* Убираем границу */
     background-color: #3c3b3b; /* Цвет фона */
@@ -50,6 +52,7 @@ html, body {
     flex-direction: column;
     align-items: center; /* Центрируем содержимое по горизонтали */
     color: #fff;
+    margin-left: 530px; /* Приближаем лого к хедеру */
 }
 
 .icons {
@@ -62,4 +65,3 @@ html, body {
 .icons svg {
     margin-right: 15px; /* Отступ между иконками */
 }
-

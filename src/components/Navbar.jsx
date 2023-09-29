@@ -14,7 +14,15 @@ const Navbar = () => {
     {
       path: "/post",
       title: "Форум",
-    }
+    },
+    {
+      path: "/login",
+      title: "Вход",
+    },
+    {
+      path: "/register",
+      title: "Регистрация",
+    },
   ];
 
   return (
@@ -24,7 +32,11 @@ const Navbar = () => {
           {routes.map((route, idx) => {
             return (
               <li key={idx}>
-                <Link to={route.path}>{route.title}</Link>
+                {route.path === "/login" || route.path === "/register" ? (
+                  <Link to={route.path}>{route.title}</Link>
+                ) : (
+                  <Link to={route.path}>{route.title}</Link>
+                )}
               </li>
             );
           })}

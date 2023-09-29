@@ -1,0 +1,39 @@
+.comment {
+  border: 1px solid #ccc;
+  padding: 2px; /* Уменьшим padding */
+  margin-bottom: 2px; /* Уменьшим margin */
+}
+
+.comment .author {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment .text {
+  font-size: 12px; /* Уменьшим размер шрифта */
+}
+
+/* CSS для формы комментариев */
+.comment-form {
+  margin-top: 20px; /* Уменьшен margin для меньшего пространства */
+}
+
+.comment-form textarea {
+  width: 20%; /* Уменьшим ширину textarea */
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 5px; /* Уменьшим margin */
+}
+
+.comment-form button {
+  padding: 8px 15px; /* Уменьшен padding для меньшего пространства */
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #45a049;
+}

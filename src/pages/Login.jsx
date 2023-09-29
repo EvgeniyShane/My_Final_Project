@@ -1,10 +1,10 @@
+import React, { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import "../scss/styles.scss"
-import { Link } from "react-router-dom";
-
-
+import { useNavigate, NavLink } from "react-router-dom";
+import "../scss/styles.scss";
+import "./Login.css";
 
 const Login = () => {
   const {
@@ -12,6 +12,20 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    setIsLoggedIn(!!user);
+
+    const accessToken = localStorage.getItem("accessToken");
+
+    if (accessToken) {
+      axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+    }
+  }, []);
 
   const onSubmit = (data) => {
     axios
@@ -34,12 +48,11 @@ const Login = () => {
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("access_token");
-    localStorage.removeItem("refresh_token");
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
     localStorage.removeItem("user");
-
-    
-    window.location.href = "/login";
+    setIsLoggedIn(false);
+    navigate("/login");
   };
 
   return (
@@ -47,25 +60,33 @@ const Login = () => {
       <Navbar />
       <div className="login-container">
         <h1>Login</h1>
-        <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
-          <input
-            className="login-input"
-            type="text"
-            placeholder="Username"
-            {...register("username", { required: true })}
-          />
-          <input
-            className="login-input"
-            type="password"
-            placeholder="Password"
-            {...register("password", { required: true })}
-            value={"H77h6n{u1efN"}
-          />
-          <button className="login-button" type="submit">
-            Login
-          </button>
-          <Link className="login-button" type="submit" to="/register">Register</Link>
-        </form>
+        {isLoggedIn ? (
+          <div>
+            <p>User is logged in!</p>
+            <button onClick={handleLogout}>Logout</button>
+          </div>
+        ) : (
+          <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+            <input
+              className="login-input"
+              type="text"
+              placeholder="Username"
+              {...register("username", { required: true })}
+            />
+            <input
+              className="login-input"
+              type="password"
+              placeholder="Password"
+              {...register("password", { required: true })}
+            />
+            <button className="login-button" type="submit">
+              Login
+            </button>
+            <NavLink className="login-button" to="/register">
+              Register
+            </NavLink>
+          </form>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,20 @@
-.cards .card img {
-  max-width: 20%; /* Устанавливаем максимальную ширину изображения в 20% от родительского элемента */
-  height: auto; /* Поддерживаем соотношение сторон */
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 50%;
+  margin: 0 auto;
+  max-height: 80vh;
 }
 
-.card {
+.cards .card {
   background-color: black;
+  width: 9%; /* Уменьшили ширину до 9% */
+  margin: 5px; /* Уменьшили отступ до 5px */
+  box-sizing: border-box;
+}
+
+.cards .card img {
+  width: 50%; /* Уменьшили ширину изображения до 50% */
+  height: auto;
+  max-width: 100%;
 }
