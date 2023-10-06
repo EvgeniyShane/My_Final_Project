@@ -20,7 +20,7 @@ const Register = () => {
           users: [res.data.id],  
         })
           .then(() => {
-            // После успешного создания пользователя, переходим на страницу профиля
+           
             navigate("/profile");
             console.log(res);
           })

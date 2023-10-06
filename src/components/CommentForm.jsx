@@ -7,7 +7,7 @@ const CommentForm = ({ post }) => {
   const [commentText, setCommentText] = useState('');
   const [comments, setComments] = useState([]);
   const userData = JSON.parse(localStorage.getItem('user'));
-  const ref=useRef(null);
+  const ref = useRef(null);
 
   const loadComments = async () => {
     try {
@@ -22,12 +22,11 @@ const CommentForm = ({ post }) => {
     loadComments();
   }, [post.id]);
 
-
-  const submitReply=(author)=> {
-   console.log(ref.current)
-   ref.current?.scrollIntoView({behavior: "smooth"})
-   ref.current.value=`${author}, `
-  }
+  const submitReply = (author) => {
+    console.log(ref.current);
+    ref.current?.scrollIntoView({ behavior: 'smooth' });
+    ref.current.value = `${author}, `;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -56,7 +55,7 @@ const CommentForm = ({ post }) => {
 
       console.log('Comment created');
       setCommentText('');
-      loadComments();  
+      loadComments();
     } catch (error) {
       console.error('Error creating comment:', error.response);
     }
@@ -66,8 +65,8 @@ const CommentForm = ({ post }) => {
     <div className="comment-form">
       <h3>Добавить комментарий</h3>
       <form onSubmit={handleSubmit}>
-        <textarea 
-        ref={ref}
+        <textarea
+          ref={ref}
           value={commentText}
           onChange={(e) => setCommentText(e.target.value)}
           placeholder="Текст комментария"
