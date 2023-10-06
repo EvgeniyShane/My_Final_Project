@@ -20,7 +20,7 @@ const Login = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     setIsLoggedIn(!!user);
 
-    const accessToken = localStorage.getItem("accessToken");
+    const accessToken = localStorage.getItem("access_token");
 
     if (accessToken) {
       axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
@@ -41,29 +41,33 @@ const Login = () => {
           })
           .then((res) => {
             localStorage.setItem("user", JSON.stringify(res.data));
-            window.location.href = "/";
+            navigate("/");
           });
       })
       .catch((err) => console.error(err));
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("accessToken");
-    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("access_token"); 
+    localStorage.removeItem("refresh_token");
     localStorage.removeItem("user");
     setIsLoggedIn(false);
     navigate("/login");
   };
 
+  const user = JSON.parse(localStorage.getItem("user"));
+
   return (
     <div>
       <Navbar />
       <div className="login-container">
-        <h1>Login</h1>
+        <h1>Вход в аккаунт</h1>
         {isLoggedIn ? (
           <div>
-            <p>User is logged in!</p>
-            <button onClick={handleLogout}>Logout</button>
+            <p className="welcome-message">Welcome, {user.username}!</p>
+            <button onClick={handleLogout} className="logout-button">
+              Logout
+            </button>
           </div>
         ) : (
           <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
@@ -83,7 +87,7 @@ const Login = () => {
               Login
             </button>
             <NavLink className="login-button" to="/register">
-              Register
+              Регистрация
             </NavLink>
           </form>
         )}

@@ -3,37 +3,43 @@ html, body {
     background-color: #1a1a1a; /* Чёрный цвет */
     margin: 0; /* Убираем отступы */
     padding: 0; /* Убираем внутренний отступ */
-}
-
-.container {
+  }
+  
+  .container {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     height: 100%;
-}
-
-.container svg {
+  }
+  
+  .container svg {
     fill: white;
-}
-
-.header {
+  }
+  
+  .header {
     background: #000;
     height: 100px;
     margin-left: 20px; /* Отступ с левой стороны */
     padding: 5px; 
-}
+    color: white; /* Цвет текста */
+  }
 
-.main {
+  h1 {
+    color: white;
+  } 
+  
+  .main {
     flex: 1 0 auto;
-}
-
-.footer {
+  }
+  
+  .footer {
     flex: 0 0 auto;
     background: hsla(101, 100%, 47%, 0.493);
     height: 100px;
-}
-
-.search-input {
+    color: white; /* Цвет текста */
+  }
+  
+  .search-input {
     position: absolute; /* Абсолютное позиционирование */
     top: 50px; /* Отступ от верхнего края */
     right: 740px; /* Отступ от правого края */
@@ -43,7 +49,7 @@ html, body {
     border-radius: 5px; /* Скругленные углы */
     color: #fff;
   }
-
+  
   .logo-container {
     position: absolute;
     width: 200px; /* Задайте ширину по вашему усмотрению */
@@ -52,16 +58,23 @@ html, body {
     flex-direction: column;
     align-items: center; /* Центрируем содержимое по горизонтали */
     color: #fff;
-    margin-left: 530px; /* Приближаем лого к хедеру */
-}
-
-.icons {
+    margin-left: 520px; /* Приближаем лого к хедеру */
+  }
+  
+  .icons {
     display: flex;
     justify-content: flex-start; /* Располагаем иконки влево */
     margin-top: 10px; /* Расстояние между логотипом и иконками */
     margin-right: 60px; /* Отступ справа */
-}
-
-.icons svg {
+  }
+  
+  .icons svg {
     margin-right: 15px; /* Отступ между иконками */
-}
+  }
+
+  a {
+    color: white;
+    padding: 0;
+    margin: 0;
+  }
+  

@@ -13,15 +13,15 @@ const Navbar = () => {
     },
     {
       path: "/post",
-      title: "Форум",
+      title: "Статьи",
     },
     {
       path: "/login",
       title: "Вход",
     },
     {
-      path: "/register",
-      title: "Регистрация",
+      path: "/profile",
+      title: "Профиль",
     },
   ];
 

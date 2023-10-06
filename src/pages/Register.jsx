@@ -2,7 +2,7 @@ import Navbar from "@/components/Navbar";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./Register.css"
+import "./Register.css";
 
 const Register = () => {
   const {
@@ -16,8 +16,20 @@ const Register = () => {
   const onSubmit = (data) => {
     axios.post("http://127.0.0.1:8000/auth/users/", data)
       .then((res) => {
-        navigate("/"); // Navigate to the desired page after registration, e.g., profile page
-        console.log(res);
+        axios.post(`http://127.0.0.1:8000/admin/auth/group/${res.data.id}/change/`, {
+          users: [res.data.id],  
+        })
+          .then(() => {
+            // После успешного создания пользователя, переходим на страницу профиля
+            navigate("/profile");
+            console.log(res);
+          })
+          .catch((error) => {
+            console.error("Error assigning group:", error);
+          });
+      })
+      .catch((error) => {
+        console.error("Error creating user:", error);
       });
   }
 
